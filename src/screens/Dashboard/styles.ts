@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { Feather } from '@expo/vector-icons'
-import theme from '../../global/styles/theme';
+import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 export const Container = styled.View`
     flex: 1;
     background-color:${({ theme }) => theme.colors.background};
@@ -10,14 +10,19 @@ export const Container = styled.View`
 
 export const Header = styled.View`
     width: 100%;
-    background-color: ${({theme})=> theme.colors.primary};
     height : ${RFPercentage(42)}px;
-    align-items: center;
+
+    background-color: ${({theme})=> theme.colors.primary};
+
+    align-items: flex-start;
     justify-content: center;
+    flex-direction: row;
+    
 `;
 export const UserWrapper = styled.View`
     width: 100%;
     padding:0px 24px;
+    margin-top: ${getStatusBarHeight() + RFValue(28)}px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -57,5 +62,9 @@ export const HighlightCards = styled.ScrollView.attrs({
     horizontal: true,
     showsHorizontalScrollIndicator: false,
     contentContainerStyle : {paddingHorizontal: 24},
-})``;
+})`
+    width: 100%;
+    position: absolute;
+    margin-top: ${RFPercentage(20)}px;
+`;
     
