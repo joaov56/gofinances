@@ -12,6 +12,7 @@ import {
 import theme from './src/global/styles/theme'
 // import { Dashboard } from './src/screens/Dashboard';
 import { Register } from './src/screens/Register';
+import { Dashboard } from './src/screens/Dashboard';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -26,6 +27,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <Register />
+      {/* <Dashboard /> */}
     </ThemeProvider>
   )
 }
